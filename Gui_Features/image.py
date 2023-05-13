@@ -4,9 +4,6 @@ import sys
 import os
 ## [imports]
 ## [imread]
-#path='C:/Users/lcman/OneDrive - 한양대학교/바탕 화면/개발/Python OpenCV/opencv_python_practice/Gui Features'
-#imgname='cats-in-love.jpg'
-#full=path+'/'+imgname
 img = cv.imread("Gui_Features/cats-in-love.jpg")
 
 #img = cv.imread("./cats-in-love.jpg")
@@ -21,5 +18,4 @@ k = cv.waitKey(0)
 ## [imshow]
 ## [imsave]
 if k == ord("s"):
-    cv.imwrite("starry_night.png", img)
-## [imsave]
+    cv.imwrite("Gui_Features/Cats.jpg", img)
