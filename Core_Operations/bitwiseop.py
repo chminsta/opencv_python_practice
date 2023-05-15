@@ -3,8 +3,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Load two images
-img1 = cv.imread('kitten.jpg')
-img2 = cv.imread('Gui_Features/cats-in-love.jpg')
+img2 = cv.imread('hanyang_icon.png')
+img1 = cv.imread('Gui_Features/cats-in-love.jpg')
 assert img1 is not None, "file could not be read, check with os.path.exists()"
 assert img2 is not None, "file could not be read, check with os.path.exists()"
 # I want to put logo on top-left corner, So I create a ROI
