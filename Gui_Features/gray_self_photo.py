@@ -6,10 +6,10 @@ import os
 cap = cv.VideoCapture(0)
 i = 1
 selected_images = []
-try:
-    os.mkdir('gray')
-finally:
-    print("gray directory founded")
+#try:
+#    os.mkdir('gray')
+#finally:
+#    print("gray directory founded")
     
 
 
