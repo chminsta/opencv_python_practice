@@ -6,6 +6,20 @@ import os
 cap = cv.VideoCapture(0)
 i = 1
 selected_images = []
+display_gray = False  # Flag to indicate grayscale or color display
+
+def on_switch(value):
+    global display_gray
+    if value == 0:
+        display_gray = False
+    else:
+        display_gray = True
+
+# Create a named window for the frame
+cv.namedWindow('camera')
+
+# Create a trackbar switch
+cv.createTrackbar('Display', 'camera', 0, 1, on_switch)
 
 if not os.path.exists('photo'):
     os.makedirs('photo')
@@ -24,9 +38,16 @@ while True:
         print("Can't receive frame (stream end?). Exiting...")
         break
     letter2 = "Captured "+str(i-1)+" images"
+    
+    if display_gray:
+        gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+        show = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
 
-    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    show = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+    else:
+        gray = frame
+        show = frame
+
     cv.putText(show , letter, (10, 100), cv.FONT_ITALIC, 1, (0, 255, 0))
     cv.putText(show , letter2, (10, 400), cv.FONT_ITALIC, 1, (0, 255, 0))
     cv.imshow('camera', show)
